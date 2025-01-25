@@ -1,5 +1,13 @@
-$space-unit: 8px;
+$unit: 8px;
 
 @function set-space($multiplier) {
-  @return $space-unit * $multiplier;
+  @return $unit * $multiplier;
 }
+
+$container-padding-multipliers: (
+  sm: set-space(2),
+  md: set-space(3),
+  lg: set-space(4),
+  xl: set-space(8),
+  xxl: set-space(10)
+);

@@ -1,7 +1,5 @@
-@use "sass:map";
-
-@use 'breakpoints' as *;
-@use 'colors' as *;
-@use 'global' as *;
-@use 'spacing' as *;
-@use 'typography' as *;
+@use 'breakpoints';
+@use 'colors';
+@use 'global';
+@use 'spacing';
+@use 'typography';

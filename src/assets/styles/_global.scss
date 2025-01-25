@@ -1,6 +1,6 @@
 // This file remove all the browser and default styles.
 
-@use 'colors' as *;
+@use 'colors';
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -17,7 +17,7 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: $background-color;
+  background-color: colors.$background;
 }
 
 img, picture, video, canvas, svg {
