@@ -1,0 +1,21 @@
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$container-padding-multipliers: (
+  sm: 2,
+  md: 3,
+  lg: 4,
+  xl: 8,
+  xxl: 10
+);
