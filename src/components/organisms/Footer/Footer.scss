@@ -1,0 +1,19 @@
+@use '@/assets/styles/colors';
+@use '@/assets/styles/spacing';
+
+.footer {
+  padding: spacing.set-space(3) 0;
+  background-color: colors.$secondary;
+
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .social-media-list {
+    display: flex;
+    gap: spacing.set-space(1);
+  }
+}
