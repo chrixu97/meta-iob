@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '@/components/atoms/Section/Section';
 import Button from '@/components/atoms/Button/Button';
-import Card from '../components/atoms/Card/Card';
+import Card from '@/components/atoms/Card/Card';
+import Input from '../components/atoms/Input/Input';
 
 const Login: React.FC = () => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
   const sayThis = (text: string) => {
     alert(text);
   };
@@ -36,6 +43,33 @@ const Login: React.FC = () => {
         <Card>
           Card
         </Card>
+
+        <Input
+          type="number"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Cantidad"
+          error={true}
+        />
+
+        <Input
+          type="text"
+          variant="email"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Correo electrónico"
+          error={true}
+        />
+        {inputValue}
+
+        <Input
+          type="password"
+          variant="password"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Contraseña"
+        />
+        
       </Section>
     </main>
   );
