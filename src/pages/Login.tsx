@@ -6,9 +6,17 @@ import Input from '@/components/atoms/Input/Input';
 import Info from '@/components/atoms/Info/Info';
 import ActivityIcon from '@/components/atoms/ActivityIcon/ActivityIcon';
 import UserIcon from '@/components/atoms/UserIcon/UserIcon';
+import ActivityItem from '@/components/molecules/ActivityItem/ActivityItem';
 
 const Login: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
+
+  const activity = {
+    title: 'Restaurante Pepe',
+    type: 'restaurant',
+    date: '10 de Febrero ',
+    amount: '-100,50€',
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -81,6 +89,8 @@ const Login: React.FC = () => {
         <ActivityIcon type="shopping"></ActivityIcon>
 
         <UserIcon name="Christopher Bellido"></UserIcon>
+
+        <ActivityItem activity={activity}></ActivityItem>
         
       </Section>
     </main>
