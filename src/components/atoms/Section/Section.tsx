@@ -1,12 +1,12 @@
 import React from 'react';
 import './Section.scss';
 
-interface ContainerProps {
+interface SectionProps {
   children: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, as: Tag = 'section' }) => {
+const Section: React.FC<SectionProps> = ({ children, as: Tag = 'section' }) => {
   return (
     <Tag className="section">
       <div className="section-container">
@@ -16,4 +16,4 @@ const Container: React.FC<ContainerProps> = ({ children, as: Tag = 'section' }) 
   );
 };
 
-export default Container;
+export default Section;

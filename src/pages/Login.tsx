@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '@/components/atoms/Section/Section';
 import Button from '@/components/atoms/Button/Button';
+import Card from '../components/atoms/Card/Card';
 
 const Login: React.FC = () => {
   const sayThis = (text: string) => {
@@ -31,6 +32,10 @@ const Login: React.FC = () => {
         >
           Continuar
         </Button>
+
+        <Card>
+          Card
+        </Card>
       </Section>
     </main>
   );
