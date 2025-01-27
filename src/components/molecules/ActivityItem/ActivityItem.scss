@@ -1,0 +1,24 @@
+@use '@/assets/styles/colors';
+@use '@/assets/styles/spacing';
+
+$border: 1px solid colors.$white;
+$border-radius: 10px;
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: spacing.set-space(1);
+  padding: spacing.set-space(1.5) spacing.set-space(2);
+  background-color: colors.$secondary;
+  border: $border;
+  border-radius: $border-radius;
+
+  .activity-desc {
+    flex: 1;
+
+    .activity-title {
+      font-weight: 600;
+      margin-bottom: spacing.set-space(0.5);
+    }
+  }
+}
