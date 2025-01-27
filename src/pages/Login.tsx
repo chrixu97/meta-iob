@@ -7,6 +7,7 @@ import Info from '@/components/atoms/Info/Info';
 import ActivityIcon from '@/components/atoms/ActivityIcon/ActivityIcon';
 import UserIcon from '@/components/atoms/UserIcon/UserIcon';
 import ActivityItem from '@/components/molecules/ActivityItem/ActivityItem';
+import UserItem from '@/components/molecules/UserItem/UserItem';
 
 const Login: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
@@ -16,6 +17,11 @@ const Login: React.FC = () => {
     type: 'restaurant',
     date: '10 de Febrero ',
     amount: '-100,50€',
+  }
+
+  const user = {
+    id: 1,
+    name: "Christopher Bellido",
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -91,6 +97,9 @@ const Login: React.FC = () => {
         <UserIcon name="Christopher Bellido"></UserIcon>
 
         <ActivityItem activity={activity}></ActivityItem>
+
+        <UserItem user={user}></UserItem>
+        <UserItem user={user} filled={false}></UserItem>
         
       </Section>
     </main>

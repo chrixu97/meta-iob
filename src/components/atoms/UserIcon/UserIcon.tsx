@@ -5,7 +5,7 @@ interface UserIconProps {
   name: string;
 }
 
-const ActivityIcon: React.FC<UserIconProps> = ({ name }) => {
+const UserIcon: React.FC<UserIconProps> = ({ name }) => {
   const getInitials = (fullName: string) => {
     const [firstName, lastName] = fullName.split(' ');
     const firstInitial = firstName ? firstName.charAt(0) : '';
@@ -22,4 +22,4 @@ const ActivityIcon: React.FC<UserIconProps> = ({ name }) => {
   );
 };
 
-export default ActivityIcon;
+export default UserIcon;
