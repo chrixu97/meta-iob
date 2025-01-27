@@ -4,6 +4,8 @@ import Button from '@/components/atoms/Button/Button';
 import Card from '@/components/atoms/Card/Card';
 import Input from '@/components/atoms/Input/Input';
 import Info from '@/components/atoms/Info/Info';
+import ActivityIcon from '@/components/atoms/ActivityIcon/ActivityIcon';
+import UserIcon from '@/components/atoms/UserIcon/UserIcon';
 
 const Login: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
@@ -74,6 +76,11 @@ const Login: React.FC = () => {
         <Info variant="error" message="Información importante: ERROR" />
 
         <Info variant="success" message="Información importante: EXITO" />
+
+        <ActivityIcon type="restaurant"></ActivityIcon>
+        <ActivityIcon type="shopping"></ActivityIcon>
+
+        <UserIcon name="Christopher Bellido"></UserIcon>
         
       </Section>
     </main>

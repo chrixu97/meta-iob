@@ -8,7 +8,7 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ variant, message }) => {
   return (
-    <div className={`info info--${variant}`}>
+    <div className={`info info--${variant} small-text`}>
       {message}
     </div>
   );

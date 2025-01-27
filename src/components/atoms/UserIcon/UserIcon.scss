@@ -1,0 +1,14 @@
+@use '@/assets/styles/colors';
+@use '@/assets/styles/spacing';
+
+$icon-dimesion: 40px;
+
+.user-icon {
+  height: $icon-dimesion;
+  width: $icon-dimesion;
+  background-color: colors.$background;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
