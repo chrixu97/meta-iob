@@ -40,6 +40,31 @@ input, button, textarea, select {
   font: inherit;
 }
 
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="number"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="url"], 
+input[type="date"], 
+input[type="month"], 
+input[type="week"], 
+input[type="time"], 
+input[type="datetime-local"], 
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }

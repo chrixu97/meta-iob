@@ -1,0 +1,48 @@
+@use'@/assets/styles/colors';
+@use'@/assets/styles/spacing';
+
+$border-radius: 10px;
+$icon-dimesion: 20px;
+$input-height: 46px;
+$border-error: 2px solid colors.$error;
+
+.input {
+  background-color: colors.$white;
+  padding: 0 spacing.set-space(1.5);
+  display: flex;
+  align-items: center;
+  gap: spacing.set-space(1);
+  border-radius: $border-radius;
+  transition: border 0.3s;
+
+  &--email,
+  &--password {
+    &::before {
+      display: block;
+      height: $icon-dimesion;
+      width: $icon-dimesion;
+    }
+  }
+
+  &--email {
+    &::before {
+      content: url('@/assets/icons/icon-user.svg');
+    }
+  }
+
+  &--password {
+    &::before {
+      content: url('@/assets/icons/icon-lock.svg');
+    }
+  }
+
+  &--error {
+    border: $border-error;
+  }
+
+  input {
+    box-sizing: border-box;
+    height: $input-height;
+    flex: 1;
+  }
+}
