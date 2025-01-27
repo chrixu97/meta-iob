@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Login from '@/components/pages/Login';
-import Home from '@/components/pages/Home';
+import Login from '@/pages/Login';
+import Home from '@/pages/Home';
 import '@/assets/styles/styles.scss';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <ul>
           <li>
             <Link to="/">Home</Link>
-            <Link to="/login">New Page</Link>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </nav>
