@@ -1,0 +1,56 @@
+@use "sass:map";
+
+@use '@/assets/styles/breakpoints';
+@use '@/assets/styles/spacing';
+
+$horizontal-padding-multipliers: (
+  sm: 0 spacing.set-space(2),
+  md: 0 spacing.set-space(3),
+  lg: 0 spacing.set-space(4),
+  xl: 0 spacing.set-space(8),
+  xxl: 0 spacing.set-space(10)
+);
+
+$vertical-padding-multipliers: (
+  sm: spacing.set-space(6) 0,
+  md: spacing.set-space(8) 0,
+  lg: spacing.set-space(10) 0,
+);
+
+.section {
+  width: 100%;
+  position: relative;
+  padding: map.get($vertical-padding-multipliers, 'md');
+
+  @media(min-width: breakpoints.$md) {
+    padding: map.get($vertical-padding-multipliers, 'md');
+  }
+
+  @media(min-width: breakpoints.$lg) {
+    padding: map.get($vertical-padding-multipliers, 'lg');
+  }
+
+  .section-container {
+    height: 100%;
+    margin: 0 auto;
+    padding: map.get($horizontal-padding-multipliers, 'sm');
+    max-width: breakpoints.$container-max-width;
+    transition: padding 0.3s;
+
+    @media (min-width: breakpoints.$md) {
+      padding: map.get($horizontal-padding-multipliers, 'md');
+    }
+
+    @media (min-width: breakpoints.$lg) {
+      padding: map.get($horizontal-padding-multipliers, 'lg');
+    }
+
+    @media (min-width: breakpoints.$xl) {
+      padding: map.get($horizontal-padding-multipliers, 'xl');
+    }
+
+    @media (min-width: breakpoints.$xxl) {
+      padding: map.get($horizontal-padding-multipliers, 'xxl');
+    }
+  }
+}

@@ -10,7 +10,9 @@
   margin: 0;
 }
 
-html, body {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -18,6 +20,15 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-color: colors.$background;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 img, picture, video, canvas, svg {

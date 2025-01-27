@@ -1,11 +1,14 @@
 import React from 'react';
+import Section from '@/components/atoms/Section/Section';
 
-const NewPage: React.FC = () => {
+const Login: React.FC = () => {
   return (
-    <div>
-      <h1>Login</h1>
-    </div>
+    <main>
+      <Section>
+        <h1>Login</h1>
+      </Section>
+    </main>
   );
 };
 
-export default NewPage;
+export default Login;

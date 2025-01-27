@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewPage: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <div>
       <h1>Home</h1>
@@ -8,4 +8,4 @@ const NewPage: React.FC = () => {
   );
 };
 
-export default NewPage;
+export default Home;
