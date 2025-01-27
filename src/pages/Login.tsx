@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Section from '@/components/atoms/Section/Section';
 import Button from '@/components/atoms/Button/Button';
 import Card from '@/components/atoms/Card/Card';
-import Input from '../components/atoms/Input/Input';
+import Input from '@/components/atoms/Input/Input';
+import Info from '@/components/atoms/Info/Info';
 
 const Login: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
@@ -69,6 +70,10 @@ const Login: React.FC = () => {
           onChange={handleInputChange}
           placeholder="Contraseña"
         />
+
+        <Info variant="error" message="Información importante: ERROR" />
+
+        <Info variant="success" message="Información importante: EXITO" />
         
       </Section>
     </main>
