@@ -1,0 +1,34 @@
+@use '@/assets/styles/breakpoints';
+@use '@/assets/styles/colors';
+@use'@/assets/styles/spacing';
+
+$border: 1px solid;
+$border-radius: 20px;
+
+.button {
+  display: block;
+  background: colors.$primary;
+  padding: spacing.set-space(1) spacing.set-space(5);
+  border-radius: $border-radius;
+
+  @media(min-width: breakpoints.$lg) {
+    padding: spacing.set-space(1.5) spacing.set-space(6);
+  }
+
+  &--primary {
+    background: colors.$primary;
+    border: $border colors.$primary;
+  }
+
+  &--third {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  &[disabled] {
+    background: transparent;
+    border: $border colors.$white;
+    cursor: not-allowed;
+  }
+}
