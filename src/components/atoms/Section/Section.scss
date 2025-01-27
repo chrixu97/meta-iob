@@ -20,21 +20,11 @@ $vertical-padding-multipliers: (
 .section {
   width: 100%;
   position: relative;
-  padding: map.get($vertical-padding-multipliers, 'md');
-
-  @media(min-width: breakpoints.$md) {
-    padding: map.get($vertical-padding-multipliers, 'md');
-  }
-
-  @media(min-width: breakpoints.$lg) {
-    padding: map.get($vertical-padding-multipliers, 'lg');
-  }
-
+  
   .section-container {
     height: 100%;
     margin: 0 auto;
     padding: map.get($horizontal-padding-multipliers, 'sm');
-    max-width: breakpoints.$container-max-width;
     transition: padding 0.3s;
 
     @media (min-width: breakpoints.$md) {
@@ -52,5 +42,21 @@ $vertical-padding-multipliers: (
     @media (min-width: breakpoints.$xxl) {
       padding: map.get($horizontal-padding-multipliers, 'xxl');
     }
+  }
+}
+
+section.section {
+  padding: map.get($vertical-padding-multipliers, 'md');
+
+  @media(min-width: breakpoints.$md) {
+    padding: map.get($vertical-padding-multipliers, 'md');
+  }
+
+  @media(min-width: breakpoints.$lg) {
+    padding: map.get($vertical-padding-multipliers, 'lg');
+  }
+
+  .section-container {
+    max-width: breakpoints.$container-max-width;
   }
 }

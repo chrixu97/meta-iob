@@ -43,6 +43,7 @@ $border-error: 2px solid colors.$error;
   input {
     box-sizing: border-box;
     height: $input-height;
+    width: 100%;
     flex: 1;
   }
 }
