@@ -1,0 +1,25 @@
+@use '@/assets/styles/breakpoints';
+@use '@/assets/styles/spacing';
+
+.header {
+  padding: spacing.set-space(3) 0;
+
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      width: 120px;
+
+      @media (min-width: breakpoints.$lg) {
+        width: 180px;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
