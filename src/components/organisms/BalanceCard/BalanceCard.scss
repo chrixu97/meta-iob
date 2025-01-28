@@ -1,0 +1,11 @@
+@use '@/assets/styles/spacing';
+
+.balance-card {
+  &__title {
+    margin-bottom: spacing.set-space(1);
+  }
+
+  &__amount {
+    margin-bottom: spacing.set-space(2);
+  }
+}

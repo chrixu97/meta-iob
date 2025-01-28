@@ -40,6 +40,14 @@ body {
   }
 }
 
+.big-text {
+  @include set-font-attributes(32px, 1, 600);
+
+  @media (min-width: breakpoints.$lg) {
+    @include set-font-attributes(48px, 1, 600);
+  }
+}
+
 .small-text {
   @include set-font-attributes(8px, 1, normal);
 
@@ -47,3 +55,5 @@ body {
     @include set-font-attributes(10px, 1, normal);
   }
 }
+
+

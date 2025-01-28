@@ -26,6 +26,10 @@ $border-radius: 20px;
     padding: 0;
   }
 
+  &--full-width {
+    width: 100%;
+  }
+
   &[disabled] {
     background: transparent;
     border: $border colors.$white;
