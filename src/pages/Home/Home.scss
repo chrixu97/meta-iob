@@ -1,0 +1,29 @@
+@use '@/assets/styles/breakpoints';
+@use '@/assets/styles/spacing';
+
+.home-page {
+  .section-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: spacing.set-space(4);
+
+    @media (min-width: breakpoints.$lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .home-page__left {
+      .balance-card {
+        margin-bottom: spacing.set-space(3);
+      }
+    }
+
+    .home-page__right {
+      .operator-buttons {
+        display: flex;
+        gap: spacing.set-space(2);
+        margin-bottom: spacing.set-space(3);
+      }
+
+    }
+  } 
+}

@@ -1,0 +1,20 @@
+@use '@/assets/styles/spacing';
+
+.operator-card {
+  &__title {
+    margin-bottom: spacing.set-space(2);
+  }
+
+  .user-item {
+    margin-bottom: spacing.set-space(1.5);
+  }
+
+  .input {
+    margin-bottom: spacing.set-space(2);
+  }
+
+  .operator-card__buttons {
+    display: flex;
+    gap: spacing.set-space(2);
+  }
+}
