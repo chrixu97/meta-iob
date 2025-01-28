@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import Login from '@/pages/Login';
+import Login from '@/pages/Login/Login';
 import Home from '@/pages/Home';
 
 import Footer from '@/components/organisms/Footer/Footer';

@@ -1,0 +1,31 @@
+@use '@/assets/styles/spacing';
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__register-text {
+    text-align: center;
+    margin-top: spacing.set-space(1);
+    margin-bottom: spacing.set-space(3);
+  }
+
+  & > .input {
+    margin-bottom: spacing.set-space(2);
+  }
+
+  & > .info {
+    margin-bottom: spacing.set-space(1);
+
+    &:last-of-type {
+      margin-bottom: spacing.set-space(3);
+    }
+  }
+
+  & > .button {
+    &:first-of-type {
+      margin-bottom: spacing.set-space(2);
+    }
+  }
+}

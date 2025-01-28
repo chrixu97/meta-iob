@@ -9,6 +9,7 @@ $border-radius: 10px;
   background-color: colors.$secondary;
   border-radius: $border-radius;
   padding: spacing.set-space(1.5) spacing.set-space(2);
+  text-align: center;
 
   @media (min-width: breakpoints.$md) {
     padding: spacing.set-space(1.5) spacing.set-space(2);
