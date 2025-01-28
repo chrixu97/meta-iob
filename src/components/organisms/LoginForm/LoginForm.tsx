@@ -3,10 +3,12 @@ import Input from '@/components/atoms/Input/Input';
 import Button from '@/components/atoms/Button/Button';
 import Info from '@/components/atoms/Info/Info';
 import useFormValidation from '@/hooks/useFormValidation';
+import { useTranslation } from 'react-i18next';
 
 import './LoginForm.scss';
 
 const LoginForm: React.FC = () => {
+  const { t } = useTranslation();
   const [mode, setMode] = useState<'login' | 'register' | ''>('');
 
   interface UseFormValidationReturn {
@@ -50,14 +52,14 @@ const LoginForm: React.FC = () => {
   return (
     <form className='login-form'>
       <p className={`login-form__register-text ${showInRegister()}`}>
-        Crea tu cuenta de manera gratuita
+      {t('loginPage.registerText')}
       </p>
 
       <div className='login-form__input_wrapper'>
         <Input
           type="email"
           variant="email"
-          placeholder="Correo electrónico"
+          placeholder={t('loginPage.form.email.placeholder')}
           value={formValidation.email}
           onChange={formValidation.handleEmailChange}
           error={mode === 'register' && formValidation.emailError}
@@ -66,7 +68,7 @@ const LoginForm: React.FC = () => {
         <Input
           type="password"
           variant="password"
-          placeholder="Contraseña"
+          placeholder={t('loginPage.form.password.placeholder')}
           value={formValidation.password}
           onChange={formValidation.handlePasswordChange}
           error={mode === 'register' && formValidation.passwordError}
@@ -77,7 +79,7 @@ const LoginForm: React.FC = () => {
           type="password"
           variant="password"
           className={showInRegister()}
-          placeholder="Repetir contraseña"
+          placeholder={t('loginPage.form.repeatPassword.placeholder')}
           value={formValidation.repeatPassword}
           onChange={formValidation.handleRepeatPasswordChange}
           error={mode === 'register' && formValidation.repeatPasswordError}
@@ -85,35 +87,45 @@ const LoginForm: React.FC = () => {
       </div>
 
       <div className={`login-form__error_wrapper ${showInRegister()}`}>
-        {/* {mode === 'login' && <Info variant="error" message="Usuario o contraseña incorrecta" className={`${mode == 'login' ? 'show' : 'hide'}`}/>} */}
+        {/* {mode === 'login' && <Info variant="error" message={t('loginPage.form.buttons.error')} className={`${mode == 'login' ? 'show' : 'hide'}`}/>} */}
       
         <Info 
           variant="error"
           className={showRegisterError(formValidation.emailError)}
-          message="Formato de correo electrónico incorrecto"
+          message={t('loginPage.form.email.error')}
         />
         
         <Info 
           variant="error"
           className={showRegisterError(formValidation.passwordError)}
-          message="La contraseña debe tener al menos 8 caracteres e incluir: una letra mayúscula, un número y un símbolo especial (como @, #, $, %, etc.)."
+          message={t('loginPage.form.password.error')}
         />
 
         <Info
           variant="error"
           className={showRegisterError(formValidation.repeatPasswordError)}
-          message="La repetición de la contraseña no coincide"
+          message={t('loginPage.form.repeatPassword.error')}
         />
       </div>
       
       <Button variant="primary">
-        <span className={showInLogin()}>Iniciar sesión</span>
-        <span className={showInRegister()}>Crear una cuenta</span>
+        <span className={showInLogin()}>
+          {t('loginPage.form.buttons.login')}
+        </span>
+
+        <span className={showInRegister()}>
+          {t('loginPage.form.buttons.register')}
+        </span>
       </Button>
 
       <Button variant="tertiary" onClick={toggleMode}>
-        <span className={showInLogin()}>Crear una cuenta</span>
-        <span className={showInRegister()}>Iniciar sesión</span>
+        <span className={showInLogin()}>
+        {t('loginPage.form.buttons.register')}
+        </span>
+
+        <span className={showInRegister()}>
+          {t('loginPage.form.buttons.login')}
+        </span>
       </Button>
     </form>
   );

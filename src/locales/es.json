@@ -1,0 +1,24 @@
+{
+  "loginPage": {
+    "registerText": "Crea tu cuenta de manera gratuita",
+    "form": {
+      "email": {
+        "placeholder": "Correo electrónico",
+        "error": "Formato de correo electrónico incorrecto"
+      },
+      "password": {
+        "placeholder": "Contraseña",
+        "error": "La contraseña debe tener al menos 8 caracteres e incluir: una letra mayúscula, un número y un símbolo especial (como @, #, $, %, etc.)."
+      },
+      "repeatPassword": {
+        "placeholder": "Repetir Contraseña",
+        "error": "La repetición de la contraseña no coincide"
+      },
+      "buttons": {
+        "login": "Iniciar sesión",
+        "register": "Crear una cuenta",
+        "error": "Usuario o contraseña incorrecta"
+      }
+    }
+  }
+}
