@@ -10,6 +10,7 @@ interface UseFormValidationReturn {
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handlePasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleRepeatPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  cleanFields: () => void;
 }
 
 
@@ -49,6 +50,15 @@ const useFormValidation = (): UseFormValidationReturn => {
     setRepeatPasswordError(value !== password);
   };
 
+  const cleanFields = () => {
+    setEmail('');
+    setEmailError(false);
+    setPassword('');
+    setPasswordError(false);
+    setRepeatPassword('');
+    setRepeatPasswordError(false);
+  }
+
   return {
     email,
     emailError,
@@ -59,6 +69,7 @@ const useFormValidation = (): UseFormValidationReturn => {
     handleEmailChange,
     handlePasswordChange,
     handleRepeatPasswordChange,
+    cleanFields
   };
 };
 

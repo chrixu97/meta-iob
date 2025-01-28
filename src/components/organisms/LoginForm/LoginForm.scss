@@ -4,28 +4,103 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: spacing.set-space(1);
 
   &__register-text {
     text-align: center;
-    margin-top: spacing.set-space(1);
+    max-height: 0;
+    overflow: hidden;
     margin-bottom: spacing.set-space(3);
   }
 
-  & > .input {
-    margin-bottom: spacing.set-space(2);
-  }
-
-  & > .info {
+  &__input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.set-space(1);
     margin-bottom: spacing.set-space(1);
 
-    &:last-of-type {
-      margin-bottom: spacing.set-space(3);
+    .input {
+      &#repeat-password {
+        max-height: 0;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &__error_wrapper {
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: spacing.set-space(0.5);
+    margin-bottom: spacing.set-space(1);
+
+    .info {
+      max-height: 0;
+      overflow: hidden;
     }
   }
 
   & > .button {
+    position: relative;
+
     &:first-of-type {
+      margin-top: spacing.set-space(2);
       margin-bottom: spacing.set-space(2);
     }
+
+    span {
+      &:last-of-type {
+        position: absolute;
+        left: 0;
+        right: 0;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// Animations
+
+.hide {
+  pointer-events: none;
+  animation: hideAnimation 1s forwards;
+}
+
+.show {
+  animation: showAnimation 1s forwards;
+}
+
+@keyframes hideAnimation {
+  0% {
+    opacity: 1;
+    max-height: 150px;
+  }
+
+  50% {
+    opacity: 0;
+    max-height: 150px;
+  }
+
+  100% {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+  }
+}
+
+@keyframes showAnimation {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  50% {
+    opacity: 0;
+    max-height: 150px;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: 150px;
   }
 }
