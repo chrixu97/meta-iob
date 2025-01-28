@@ -15,15 +15,24 @@
       .balance-card {
         margin-bottom: spacing.set-space(3);
       }
+
+      .operator-panel {
+        display: block;
+
+        @media (min-width: breakpoints.$lg) {
+          display: none;
+        }
+      }
     }
 
     .home-page__right {
-      .operator-buttons {
-        display: flex;
-        gap: spacing.set-space(2);
-        margin-bottom: spacing.set-space(3);
-      }
+      .operator-panel {
+        display: none;
 
+        @media (min-width: breakpoints.$lg) {
+          display: block;
+        }
+      }
     }
   } 
 }
