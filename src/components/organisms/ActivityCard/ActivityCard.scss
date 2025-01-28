@@ -1,0 +1,15 @@
+@use '@/assets/styles/spacing';
+
+.activity-card {
+  &__title {
+    margin-bottom: spacing.set-space(2);
+  }
+
+  &__list {
+    margin-bottom: spacing.set-space(3);
+    
+    .activity-item {
+      margin-bottom: spacing.set-space(1);
+    }
+  }
+}
