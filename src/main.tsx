@@ -4,7 +4,7 @@ import '@/assets/styles/styles.scss'
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../i18n';
 
-import App from './App.tsx'
+import App from './App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

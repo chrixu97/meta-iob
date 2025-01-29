@@ -5,8 +5,9 @@ import ActivityIcon from '@/components/atoms/ActivityIcon/ActivityIcon';
 
 interface ActivityItemProps {
   activity: {
-    title: 'restaurant' | 'shopping',
-    type: string,
+    id: string,
+    title: string,
+    type: 'restaurant' | 'shopping',
     date: string,
     amount: string,
   }

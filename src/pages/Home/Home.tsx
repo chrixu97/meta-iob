@@ -11,17 +11,6 @@ import './Home.scss';
 
 
 const Home: React.FC = () => {
-  const users = [
-    {
-      id: 1,
-      name: 'Christopher Bellido',
-    },
-    {
-      id: 2,
-      name: 'Eva Cantero',
-    },
-  ];
-
   return (
     <main className='home-page'>
       <Section>

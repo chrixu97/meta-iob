@@ -5,17 +5,25 @@ import ActivityItem from '@/components/molecules/ActivityItem/ActivityItem';
 
 import './ActivityCard.scss';
 
-const ActivtyCard: React.FC = () => {
-  const activities = [
+const ActivityCard: React.FC = () => {
+  interface ActivityItemProps {
+    id: string;
+    title: string;
+    type: 'restaurant' | 'shopping',
+    date: string;
+    amount: string;
+  }
+
+  const activities: ActivityItemProps[] = [
     {
-      id: 1,
+      id: '1',
       title: 'Restaurante Pepe',
       type: 'restaurant',
       date: '10 de Febrero ',
       amount: '-100,50€',
     },
     {
-      id: 2,
+      id: '2',
       title: 'Restaurante Antonio',
       type: 'restaurant',
       date: '10 de Febrero ',
@@ -38,4 +46,4 @@ const ActivtyCard: React.FC = () => {
   );
 };
 
-export default ActivtyCard;
+export default ActivityCard;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }  from 'react';
 
 import UserItem from '@/components/molecules/UserItem/UserItem';
 
@@ -9,10 +9,16 @@ import Input from '@/components/atoms/Input/Input';
 import './OperatorCard.scss';
 
 const OperatorCard: React.FC = () => {
+  const [amount, setAmount] = useState<string>('');
+
   const user = {
     id: 1,
     name: "Christopher Bellido",
   }
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(e.target.value);
+  };
 
   return (
     <Card className='operator-card'>
@@ -24,6 +30,8 @@ const OperatorCard: React.FC = () => {
         type="number"
         placeholder="Cantidad"
         error={false}
+        value={amount}
+        onChange={handleAmountChange}
       />
 
       <div className="operator-card__buttons">
