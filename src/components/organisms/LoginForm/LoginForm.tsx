@@ -118,7 +118,7 @@ const LoginForm: React.FC = () => {
         </span>
       </Button>
 
-      <Button variant="tertiary" onClick={toggleMode}>
+      <Button variant="tertiary" onClick={() => toggleMode}>
         <span className={showInLogin()}>
         {t('loginPage.form.buttons.register')}
         </span>

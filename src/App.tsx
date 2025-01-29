@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Link } from 'react-router-dom';
 
 import Login from '@/pages/Login/Login';
 import Home from '@/pages/Home/Home';
@@ -21,6 +21,11 @@ const AppContent: React.FC = () => {
       </Routes>
 
       <Footer />
+
+      <div className='not-show'>
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+      </div>
     </>
   );
 };

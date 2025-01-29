@@ -7,7 +7,7 @@ interface InputProps {
   variant?: string,
   value: string;
   className?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   error?: boolean
   disabled?: boolean;
