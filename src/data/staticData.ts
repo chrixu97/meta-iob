@@ -6,13 +6,15 @@ export const staticData = {
       email: 'christopher@meta.com',
       password: 'Meta123?',
       balance: 1000,
-      activity: {
-        id: '1',
-        title: 'Restaurante Pepe',
-        type: 'restaurant',
-        date: '10 de Febrero ',
-        amount: '-100,50€',
-      }
+      activities: [
+        {
+          id: '1',
+          title: 'Restaurante Pepe',
+          type: 'restaurant',
+          date: '10 de Febrero ',
+          amount: '-100,50€',
+        }
+      ]
     }
   ]
 };

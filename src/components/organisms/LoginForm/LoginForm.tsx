@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Input from '@/components/atoms/Input/Input';
 import Button from '@/components/atoms/Button/Button';
@@ -9,6 +9,7 @@ import Info from '@/components/atoms/Info/Info';
 import useFormValidation from '@/hooks/useFormValidation';
 
 import { RootState } from '@/state/store';
+import { setUser } from '@/state/user/loggedUserSlice';
 
 import './LoginForm.scss';
 
@@ -16,7 +17,8 @@ const LoginForm: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const users = useSelector((state: RootState) => state.data.users);
+  const dispatch = useDispatch();
+  const userList = useSelector((state: RootState) => state.userList.users);
 
   const formValidation = useFormValidation() as UseFormValidationReturn;
   const credentialsErrorRef = useRef<HTMLDivElement>(null);
@@ -69,8 +71,9 @@ const LoginForm: React.FC = () => {
   }
 
   const checkCredentials = () => {    
-    users.forEach((user) => {
+    userList.forEach((user) => {
       if (user.email === formValidation.email && user.password === formValidation.password) {
+        dispatch(setUser(user));
         void navigate('/');
       } else {
         formValidation.handleCredentialsError(true);
@@ -93,6 +96,16 @@ const LoginForm: React.FC = () => {
         );
 
         if (formValidation.email && formValidation.password && formValidation.repeatPassword) {
+          const newUser = {
+            id: Date.now(), // Asigna un ID único
+            name: 'New User',
+            email: formValidation.email,
+            password: formValidation.password,
+            balance: 0,
+            activities: [],
+          };
+
+          dispatch(setUser(newUser));
           void navigate('/');
         }
 
