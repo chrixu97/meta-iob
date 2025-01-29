@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import './Info.scss';
 
 interface InfoProps {
@@ -7,14 +7,16 @@ interface InfoProps {
   className?: string;
 }
 
-const Info: React.FC<InfoProps> = ({ variant, message, className }) => {
+const Info = forwardRef<HTMLDivElement, InfoProps>(({ variant, message, className }, ref) => {
   return (
-    <div className={`info info--${variant} small-text ${className}`}>
+    <div className={`info info--${variant} small-text ${className}`} ref={ref}>
       <span>
         {message}
       </span>
     </div>
   );
-};
+});
+
+Info.displayName = 'Info';
 
 export default Info;
