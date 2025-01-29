@@ -70,6 +70,14 @@
   animation: showAnimation 1s forwards;
 }
 
+.no-animation {
+  animation: none;
+  pointer-events: none;
+  opacity: 1;
+  max-height: 0;
+  overflow: hidden;
+}
+
 @keyframes hideAnimation {
   0% {
     opacity: 1;

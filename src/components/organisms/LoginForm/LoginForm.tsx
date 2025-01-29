@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {useSelector } from 'react-redux';
+
 import Input from '@/components/atoms/Input/Input';
 import Button from '@/components/atoms/Button/Button';
 import Info from '@/components/atoms/Info/Info';
 import useFormValidation from '@/hooks/useFormValidation';
-import { useTranslation } from 'react-i18next';
+
+import { RootState } from '@/state/store';
 
 import './LoginForm.scss';
 
 const LoginForm: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const users = useSelector((state: RootState) => state.data.users);
+
+  const formValidation = useFormValidation() as UseFormValidationReturn;
+  const credentialsErrorRef = useRef<HTMLDivElement>(null);
+
   const [mode, setMode] = useState<'login' | 'register' | ''>('');
+  const [isDirty, setIsDirty] = useState(false);
 
   interface UseFormValidationReturn {
     email: string;
@@ -18,30 +31,36 @@ const LoginForm: React.FC = () => {
     passwordError: boolean;
     repeatPassword: string;
     repeatPasswordError: boolean;
+    credentialsError: boolean;
     handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handlePasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleRepeatPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleCredentialsError: (value: boolean) => void;
     cleanFields: () => void;
+    setErrors: (email: boolean, password: boolean, repeatPassword: boolean) => void;
   }
 
-  const formValidation = useFormValidation() as UseFormValidationReturn;
-
-  const toggleMode = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const toggleMode = () => {
     formValidation.cleanFields();
     setMode((prevMode) => (prevMode === 'register' ? 'login' : 'register'));
   };
 
-  const showInRegister = () => {
-    if (mode === 'register') return 'show';
-    if (mode === 'login') return 'hide';
-    return '';
-  }
-
   const showInLogin = () => {
     if (mode === 'login') return 'show';
     if (mode === 'register') return 'hide';
-    return '';
+    return 'no-animation';
+  }
+
+  const showInRegister = () => {
+    if (mode === 'register') return 'show';
+    if (mode === 'login') return 'hide';
+    return 'no-animation';
+  }
+
+  const showLoginError = (error: boolean) => {
+    if (mode === '' && error) return 'show';
+    if (mode === 'login' && error) return 'show';
+    return 'hide';
   }
 
   const showRegisterError = (error: boolean) => {
@@ -49,66 +68,112 @@ const LoginForm: React.FC = () => {
     return 'hide';
   }
 
+  const checkCredentials = () => {    
+    users.forEach((user) => {
+      if (user.email === formValidation.email && user.password === formValidation.password) {
+        void navigate('/');
+      } else {
+        formValidation.handleCredentialsError(true);
+      }
+    });
+  };
+
+  const handleLoginButton = () => {
+    setIsDirty(true);
+
+    switch(mode) {
+      case 'login':
+        checkCredentials();
+        break;
+      case 'register':
+        formValidation.setErrors(
+          !formValidation.email,
+          !formValidation.password, 
+          !formValidation.repeatPassword
+        );
+
+        if (formValidation.email && formValidation.password && formValidation.repeatPassword) {
+          void navigate('/');
+        }
+
+        break;
+      default:
+        checkCredentials();
+        break;
+    }
+  };
+  
   return (
-    <form className='login-form'>
-      <p className={`login-form__register-text ${showInRegister()}`}>
-      {t('loginPage.registerText')}
-      </p>
+    <div className='login-form'>
+      <form>
+        <p className={`login-form__register-text ${showInRegister()}`}>
+          {t('loginPage.registerText')}
+        </p>
 
-      <div className='login-form__input_wrapper'>
-        <Input
-          type="email"
-          variant="email"
-          placeholder={t('loginPage.form.email.placeholder')}
-          value={formValidation.email}
-          onChange={formValidation.handleEmailChange}
-          error={mode === 'register' && formValidation.emailError}
-        />
+        <div className='login-form__input_wrapper'>
+          <Input
+            type="email"
+            variant="email"
+            placeholder={t('loginPage.form.email.placeholder')}
+            value={formValidation.email}
+            onChange={formValidation.handleEmailChange}
+            error={mode === 'register' && formValidation.emailError}
+          />
 
-        <Input
-          type="password"
-          variant="password"
-          placeholder={t('loginPage.form.password.placeholder')}
-          value={formValidation.password}
-          onChange={formValidation.handlePasswordChange}
-          error={mode === 'register' && formValidation.passwordError}
-        />
+          <Input
+            type="password"
+            variant="password"
+            placeholder={t('loginPage.form.password.placeholder')}
+            value={formValidation.password}
+            onChange={formValidation.handlePasswordChange}
+            error={mode === 'register' && formValidation.passwordError}
+          />
 
-        <Input
-          id="repeat-password"
-          type="password"
-          variant="password"
-          className={showInRegister()}
-          placeholder={t('loginPage.form.repeatPassword.placeholder')}
-          value={formValidation.repeatPassword}
-          onChange={formValidation.handleRepeatPasswordChange}
-          error={mode === 'register' && formValidation.repeatPasswordError}
-        />
-      </div>
+          <Input
+            id="repeat-password"
+            type="password"
+            variant="password"
+            className={showInRegister()}
+            placeholder={t('loginPage.form.repeatPassword.placeholder')}
+            value={formValidation.repeatPassword}
+            onChange={formValidation.handleRepeatPasswordChange}
+            error={mode === 'register' && formValidation.repeatPasswordError}
+          />
+        </div>
 
-      <div className={`login-form__error_wrapper ${showInRegister()}`}>
-        {/* {mode === 'login' && <Info variant="error" message={t('loginPage.form.buttons.error')} className={`${mode == 'login' ? 'show' : 'hide'}`}/>} */}
-      
         <Info 
           variant="error"
-          className={showRegisterError(formValidation.emailError)}
-          message={t('loginPage.form.email.error')}
-        />
-        
-        <Info 
-          variant="error"
-          className={showRegisterError(formValidation.passwordError)}
-          message={t('loginPage.form.password.error')}
+          message={t('loginPage.form.buttons.error')}
+          className={`${isDirty ? '' : 'no-animation'} ${showLoginError(formValidation.credentialsError)}`}
+          ref={credentialsErrorRef}
         />
 
-        <Info
-          variant="error"
-          className={showRegisterError(formValidation.repeatPasswordError)}
-          message={t('loginPage.form.repeatPassword.error')}
-        />
-      </div>
+        <div className={`login-form__error_wrapper ${showInRegister()}`}>
+          <Info 
+            variant="error"
+            className={showRegisterError(formValidation.emailError)}
+            message={t('loginPage.form.email.error')}
+          />
+          
+          <Info 
+            variant="error"
+            className={showRegisterError(formValidation.passwordError)}
+            message={t('loginPage.form.password.error')}
+          />
+
+          <Info
+            variant="error"
+            className={showRegisterError(formValidation.repeatPasswordError)}
+            message={t('loginPage.form.repeatPassword.error')}
+          />
+        </div>
+      </form>
       
-      <Button variant="primary">
+      <Button 
+        variant="primary" 
+        disabled={(mode === 'register' && (formValidation.emailError || formValidation.passwordError || formValidation.repeatPasswordError))}
+        onClick={handleLoginButton}
+      >
         <span className={showInLogin()}>
           {t('loginPage.form.buttons.login')}
         </span>
@@ -118,7 +183,7 @@ const LoginForm: React.FC = () => {
         </span>
       </Button>
 
-      <Button variant="tertiary" onClick={() => toggleMode}>
+      <Button variant="tertiary" onClick={toggleMode}>
         <span className={showInLogin()}>
         {t('loginPage.form.buttons.register')}
         </span>
@@ -127,7 +192,7 @@ const LoginForm: React.FC = () => {
           {t('loginPage.form.buttons.login')}
         </span>
       </Button>
-    </form>
+    </div>
   );
 };
 
