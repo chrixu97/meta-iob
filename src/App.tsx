@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation, Link } from 'react
 import Login from '@/pages/Login/Login';
 import Home from '@/pages/Home/Home';
 
+import ProtectedRoute from '@/components/atoms/ProtectedRoute/ProtectedRoute';
 import Footer from '@/components/organisms/Footer/Footer';
 import Header from '@/components/organisms/Header/Header';
 
@@ -16,8 +17,8 @@ const AppContent: React.FC = () => {
       {location.pathname === '/' && <Header />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<ProtectedRoute> <Home /> </ProtectedRoute>}/>
       </Routes>
 
       <Footer />
