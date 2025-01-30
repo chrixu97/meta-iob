@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { setOperatorState } from '@/state/operator/operatorSlice';
 import { logout } from '@/state/user/loggedUserSlice';
 
 import Button from '@/components/atoms/Button/Button';
@@ -16,6 +17,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    dispatch(setOperatorState(''));
     dispatch(logout());
     void navigate('/login')
   }

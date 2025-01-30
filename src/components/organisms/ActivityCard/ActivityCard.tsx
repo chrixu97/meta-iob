@@ -26,9 +26,13 @@ const ActivityCard: React.FC<ActivityCardProps> = ({activities}) => {
       <p className='activity-card__title title'>{t('homePage.activitiesCard.title')}</p>
 
       <div className="activity-card__list">
-        {activities.map(activity => (
-          <ActivityItem key={activity.id} activity={activity}></ActivityItem>
-        ))}
+        {activities.length > 0 ? (
+          activities.map(activity => (
+            <ActivityItem key={activity.id} activity={activity}></ActivityItem>
+          ))
+        ) : (
+          <p>{t('homePage.activitiesCard.noActivities')}</p>
+        )}
       </div>
     </Card>
   );
