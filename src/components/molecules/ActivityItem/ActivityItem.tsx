@@ -7,7 +7,7 @@ interface ActivityItemProps {
   activity: {
     id: string,
     title: string,
-    type: 'restaurant' | 'shopping',
+    type: string,
     date: string,
     amount: string,
   }

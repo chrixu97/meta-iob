@@ -40,8 +40,12 @@ const loggedUserSlice = createSlice({
       console.log('logout:', state.user);
       state.user = initialState.user;
     },
+    addActivity(state, action: PayloadAction<LoggedUserState['user']>) {
+      console.log('setUser:', state.user);
+      state.user = action.payload;
+    },
   }
 });
 
-export const { setUser, logout } = loggedUserSlice.actions;
+export const { setUser, logout, addActivity } = loggedUserSlice.actions;
 export default loggedUserSlice.reducer;

@@ -14,13 +14,11 @@ const Home: React.FC = () => {
 
   return (
     <main className='home-page'>
-
-      <h1>{user.name}</h1>
       <Section>
         <div className="home-page__left">
-          <BalanceCard />
+          <BalanceCard balance={user.balance} />
           <OperatorPanel></OperatorPanel>
-          <ActivityCard />
+          <ActivityCard activities={user.activities}/>
         </div>
 
         <div className="home-page__right">

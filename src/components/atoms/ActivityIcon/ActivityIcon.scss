@@ -26,4 +26,10 @@ $icon-dimesion: 24px;
       content: url('@/assets/icons/icon-shopping.svg');
     }
   }
+
+  &--visa {
+    &::before {
+      content: url('@/assets/icons/icon-visa.svg');
+    }
+  }
 }
