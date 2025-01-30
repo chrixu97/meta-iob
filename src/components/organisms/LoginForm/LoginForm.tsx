@@ -13,6 +13,37 @@ import { setUser } from '@/state/user/loggedUserSlice';
 
 import './LoginForm.scss';
 
+interface User {
+  id: number;
+  name: string;
+  email: string,
+  password: string,
+  balance: number,
+  activities:{
+    id: string,
+    title: string,
+    type: string,
+    date: string,
+    amount: string,
+  }[]
+}
+
+interface UseFormValidationReturn {
+  email: string;
+  emailError: boolean;
+  password: string;
+  passwordError: boolean;
+  repeatPassword: string;
+  repeatPasswordError: boolean;
+  credentialsError: boolean;
+  handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handlePasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleRepeatPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleCredentialsError: (value: boolean) => void;
+  cleanFields: () => void;
+  setErrors: (email: boolean, password: boolean, repeatPassword: boolean) => void;
+}
+
 const LoginForm: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -24,23 +55,7 @@ const LoginForm: React.FC = () => {
   const credentialsErrorRef = useRef<HTMLDivElement>(null);
 
   const [mode, setMode] = useState<'login' | 'register' | ''>('');
-  const [isDirty, setIsDirty] = useState(false);
-
-  interface UseFormValidationReturn {
-    email: string;
-    emailError: boolean;
-    password: string;
-    passwordError: boolean;
-    repeatPassword: string;
-    repeatPasswordError: boolean;
-    credentialsError: boolean;
-    handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    handlePasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    handleRepeatPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    handleCredentialsError: (value: boolean) => void;
-    cleanFields: () => void;
-    setErrors: (email: boolean, password: boolean, repeatPassword: boolean) => void;
-  }
+  const [isDirty, setIsDirty] = useState(false);  
 
   const toggleMode = () => {
     formValidation.cleanFields();
@@ -71,7 +86,7 @@ const LoginForm: React.FC = () => {
   }
 
   const checkCredentials = () => {    
-    userList.forEach((user) => {
+    userList.forEach((user: User) => {
       if (user.email === formValidation.email && user.password === formValidation.password) {
         dispatch(setUser(user));
         void navigate('/');

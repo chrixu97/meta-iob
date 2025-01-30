@@ -15,14 +15,14 @@ $border-radius: 20px;
     padding: spacing.set-space(1.5) spacing.set-space(6);
   }
 
-  &:hover {
-    background-color: colors.$primary-hover;
-    transition: 0.5s;
-  }
-
   &--primary {
     background: colors.$primary;
     border: $border colors.$primary;
+
+    &:hover {
+      background-color: colors.$primary-hover;
+      transition: 0.5s;
+    }
   }
 
   &--tertiary {

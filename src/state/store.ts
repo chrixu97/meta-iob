@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Store } from "@reduxjs/toolkit";
 import userListReducer from '@/state/user/userListSlice';
 import loggedUserReducer from '@/state/user/loggedUserSlice';
 import userContactListReducer from '@/state/user/userContactSlice';
 import operatorReducer from '@/state/operator/operatorSlice';
 
-export const store = configureStore({ 
+export const store:Store = configureStore({ 
   reducer: {
     userList: userListReducer,
     loggedUser: loggedUserReducer,
