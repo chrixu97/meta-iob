@@ -1,5 +1,8 @@
 # META.IoB
 
+> He conectado el repositorio con Netlify, así que os dejo aquí la URL de la web compilada :)
+> [META.IoB](https://astonishing-ganache-ec6cdf.netlify.app/)
+
 Para este proyecto he pensado en una propuesta simple pero sencilla, inspirándome en el diseño de Paypal y N26, y sus funcionalidades más básicas.
 
 El proceso de desarrollo ha sido el siguiente.
@@ -14,11 +17,10 @@ El proceso de desarrollo ha sido el siguiente.
 7. Desarrollo de la funcionalidad.
 
 # Instrucciones
+
 Para ejecutar el proyecto:
 
     npm run dev
-
-> Al finalizar el proyecto no sé por qué el **build** no me estaba compilando bien el archivo index.html. Si vosotros sabeis que puede estar pasando, sea cual sea la resolución de esta prueba agradecería un feedback y una posible solución para ello.
 
 # Login
 
