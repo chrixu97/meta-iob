@@ -42,7 +42,7 @@
 
   &--hide {
     pointer-events: none;
-    animation: hideAnimation 1s forwards;
+    animation: hideAnimationOperator 1s forwards;
 
     .operator-card__title {
       opacity: 0;
@@ -59,7 +59,7 @@
     }
   }
   
-  @keyframes hideAnimation {
+  @keyframes showAnimationOperator {
     0% {
       opacity: 1;
       max-height: 350px;
@@ -77,7 +77,7 @@
     }
   }
   
-  @keyframes showAnimation {
+  @keyframes showAnimationOperator {
     0% {
       opacity: 0;
       max-height: 0;

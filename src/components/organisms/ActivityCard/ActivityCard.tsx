@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Card from '@/components/atoms/Card/Card';
-import Button from '@/components/atoms/Button/Button';
 import ActivityItem from '@/components/molecules/ActivityItem/ActivityItem';
 
 import './ActivityCard.scss';
@@ -19,17 +19,17 @@ interface ActivityCardProps {
 }
 
 const ActivityCard: React.FC<ActivityCardProps> = ({activities}) => {
+  const { t } = useTranslation();
+
   return (
     <Card className='activity-card'>
-      <p className='activity-card__title title'>Últimos Movimientos</p>
+      <p className='activity-card__title title'>{t('homePage.activitiesCard.title')}</p>
 
       <div className="activity-card__list">
         {activities.map(activity => (
           <ActivityItem key={activity.id} activity={activity}></ActivityItem>
         ))}
       </div>
-      
-      <Button variant="tertiary">Ver más</Button>
     </Card>
   );
 };

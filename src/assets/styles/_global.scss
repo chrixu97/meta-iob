@@ -90,3 +90,8 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.not-show {
+  height: 0;
+  overflow: hidden;
+}

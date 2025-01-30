@@ -10,6 +10,11 @@ import Button from '@/components/atoms/Button/Button';
 
 import './OperatorPanel.scss';
 
+interface Contact {
+  id: number;
+  name: string;
+  isWallet: boolean;
+}
 
 const OperatorPanel: React.FC = () => {
   const { t } = useTranslation();
@@ -34,8 +39,8 @@ const OperatorPanel: React.FC = () => {
         <p className='my-contacts__title title'>{t('homePage.operatorPanel.contacts.title')}</p>
 
         <div className="my-contacts__list">
-          {contacs.map(user => (
-            <UserItem key={user.id} user={user} filled={false}></UserItem>
+          {contacs.map((contact: Contact) => (
+            <UserItem key={contact.id} user={contact} filled={false}></UserItem>
           ))}
         </div>
       </div>
