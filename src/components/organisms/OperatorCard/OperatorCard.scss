@@ -52,14 +52,14 @@
   &--add,
   &--send,
   &--request {
-    animation: showAnimation 1s forwards;
+    animation: showAnimationOperator 1s forwards;
 
     .operator-card__title {
       opacity: 1;
     }
   }
   
-  @keyframes showAnimationOperator {
+  @keyframes hideAnimationOperator {
     0% {
       opacity: 1;
       max-height: 350px;
