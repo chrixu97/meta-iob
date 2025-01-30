@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Input from '@/components/atoms/Input/Input';
 import Button from '@/components/atoms/Button/Button';
 import Info from '@/components/atoms/Info/Info';
-import useFormValidation from '@/hooks/useFormValidation';
+import useFormValidation from '@/hooks/useLoginFormValidation';
 
 import { RootState } from '@/state/store';
 import { setUser } from '@/state/user/loggedUserSlice';
@@ -97,7 +97,7 @@ const LoginForm: React.FC = () => {
 
         if (formValidation.email && formValidation.password && formValidation.repeatPassword) {
           const newUser = {
-            id: Date.now(), // Asigna un ID único
+            id: Date.now(),
             name: 'New User',
             email: formValidation.email,
             password: formValidation.password,
