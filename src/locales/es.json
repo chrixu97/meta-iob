@@ -1,0 +1,56 @@
+{
+  "loginPage": {
+    "registerText": "Crea tu cuenta de manera gratuita",
+    "form": {
+      "email": {
+        "placeholder": "Correo electrónico",
+        "error": "Formato de correo electrónico incorrecto"
+      },
+      "password": {
+        "placeholder": "Contraseña",
+        "error": "La contraseña debe tener al menos 8 caracteres e incluir: una letra mayúscula, un número y un símbolo especial (como @, #, $, %, etc.)."
+      },
+      "repeatPassword": {
+        "placeholder": "Repetir Contraseña",
+        "error": "La repetición de la contraseña no coincide"
+      },
+      "buttons": {
+        "login": "Iniciar sesión",
+        "register": "Crear una cuenta",
+        "error": "Usuario o contraseña incorrecta"
+      }
+    }
+  },
+  "homePage": {
+    "balanceCard": {
+      "title": "Balance",
+      "addFunds": "Añadir fondos"
+    },
+    "activitiesCard": {
+      "title": "Actividades",
+      "noActivities": "No hay actividades recientes",
+      "seeMore": "Ver más"
+    },
+    "operatorPanel": {
+      "buttons": {
+        "add": "Añadir",
+        "send": "Enviar",
+        "request": "Solicitar"
+      },
+      "operatorCards": {
+        "title": {
+          "add": "Añadir Fondos",
+          "send": "Enviar Dinero",
+          "request": "Solicitar Dinero",
+          "operate": "Operar"
+        },
+        "input": {
+          "placeholder": "Cantidad"
+        } 
+      },
+      "contacts": {
+        "title": "Mis Contactos"
+      }
+    }
+  }
+}

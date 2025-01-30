@@ -1,0 +1,5 @@
+$unit: 8px;
+
+@function set-space($multiplier) {
+  @return $unit * $multiplier;
+}

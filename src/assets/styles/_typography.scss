@@ -1,0 +1,59 @@
+@use "sass:map";
+
+@use 'breakpoints';
+@use 'colors';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+$principal-font: 'Inter', 'Arial';
+$font-color: colors.$white;
+
+@mixin set-font-attributes($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+body {
+  font-family: $principal-font;
+  color: $font-color;
+  @include set-font-attributes(14px, 1, normal);
+
+  @media (min-width: breakpoints.$lg) {
+    @include set-font-attributes(16px, 1, normal);
+  }
+}
+ 
+.title {
+  @include set-font-attributes(18px, 1, 600);
+
+  @media (min-width: breakpoints.$lg) {
+    @include set-font-attributes(22px, 1, 600);
+  }
+}
+
+.text {
+  @include set-font-attributes(14px, 1, normal);
+
+  @media (min-width: breakpoints.$lg) {
+    @include set-font-attributes(16px, 1, normal);
+  }
+}
+
+.big-text {
+  @include set-font-attributes(32px, 1, 600);
+
+  @media (min-width: breakpoints.$lg) {
+    @include set-font-attributes(48px, 1, 600);
+  }
+}
+
+.small-text {
+  @include set-font-attributes(8px, 1, normal);
+
+  @media (min-width: breakpoints.$lg) {
+    @include set-font-attributes(10px, 1, normal);
+  }
+}
+
+

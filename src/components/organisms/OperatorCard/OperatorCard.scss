@@ -1,0 +1,97 @@
+@use '@/assets/styles/spacing';
+
+.operator-card {
+  margin-top: spacing.set-space(2);
+  position: relative;
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  
+  &__title {
+    margin-bottom: spacing.set-space(2);
+  }
+
+  .user-item {
+    margin-bottom: spacing.set-space(1.5);
+  }
+
+  .input {
+    margin-bottom: spacing.set-space(2);
+  }
+
+  .operator-card__buttons {
+    display: flex;
+    gap: spacing.set-space(2);
+  }
+
+  .operator-card__close {
+    position: absolute;
+    top: spacing.set-space(3);
+    right: spacing.set-space(3);
+  }
+
+  
+}
+
+// Animations
+.operator-card {
+  &__title {
+    opacity: 0;
+    transition: opacity 0;
+  }
+
+  &--hide {
+    pointer-events: none;
+    animation: hideAnimationOperator 1s forwards;
+
+    .operator-card__title {
+      opacity: 0;
+    }
+  }
+
+  &--add,
+  &--send,
+  &--request {
+    animation: showAnimationOperator 1s forwards;
+
+    .operator-card__title {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes hideAnimationOperator {
+    0% {
+      opacity: 1;
+      max-height: 350px;
+    }
+  
+    50% {
+      opacity: 0;
+      max-height: 350px;
+    }
+  
+    100% {
+      opacity: 0;
+      max-height: 0;
+      margin: 0;
+    }
+  }
+  
+  @keyframes showAnimationOperator {
+    0% {
+      opacity: 0;
+      max-height: 0;
+    }
+  
+    50% {
+      opacity: 0;
+      max-height: 350px;
+    }
+  
+    100% {
+      opacity: 1;
+      max-height: 350px;
+      margin: 0;
+    }
+  }
+}

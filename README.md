@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# META.IoB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Para este proyecto he pensado en una propuesta simple pero sencilla, inspirándome en el diseño de Paypal y N26, y sus funcionalidades más básicas.
 
-Currently, two official plugins are available:
+El proceso de desarrollo ha sido el siguiente.
+1. Búsqueda de proyectos similares.
+2. Análisis de funciones básicas que cumplan con el proyecto.
+3. Desarrollo del diseño.
+		El diseño lo he creado con **Figma**. Adjunto el enlace por si queréis echarle un vistazo. 
+		https://www.figma.com/design/XK4cO0ObrDvyf68sxAejXu/META.IoB?node-id=1-2079&t=3YXC2aHdS5EtSTL1-1
+4. Creación de la base del proyecto.
+5. Desarrollo de librería de componentes.
+6. Desarrollo de las páginas usando los componentes de la librería creada.
+7. Desarrollo de la funcionalidad.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Instrucciones
+Para ejecutar el proyecto:
 
-## Expanding the ESLint configuration
+    npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+> Al finalizar el proyecto no sé por qué el **build** no me estaba compilando bien el archivo index.html. Si vosotros sabeis que puede estar pasando, sea cual sea la resolución de esta prueba agradecería un feedback y una posible solución para ello.
 
-- Configure the top-level `parserOptions` property like this:
+# Login
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Para acceder al proyecto, lo primero que os saltará será la pantalla de Login, en la cual podréis iniciar sesión o registraros.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Para el inicio de sesión tenéis ya un usuario creado
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+    email: christopher@meta.com
+    pass: Meta123?
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Para registraros podeis rellenarlo como cualquier otro formulario.
+
+
+# A tener en cuenta
+
+Las funcionalidades solicitadas están cubiertas, aunque hay cosas extra, animaciones o ajustes que me hubiese gustado hacer pero no pude dedicarle más tiempo, tratar la aplicación con cariño <3
+
+> A sido un placer formar parte del proceso, me lo he pasado muy bien profundizando más con React y algunas de sus librerías, espero poder seguir aprendiendo más cosas de vosotros.

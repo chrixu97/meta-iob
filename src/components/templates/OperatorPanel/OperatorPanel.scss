@@ -1,0 +1,24 @@
+@use '@/assets/styles/breakpoints';
+@use '@/assets/styles/spacing';
+
+.operator-panel {
+  .operator-buttons {
+    display: flex;
+    gap: spacing.set-space(2);
+    margin-bottom: spacing.set-space(3);
+  }
+
+  .my-contacts {
+    margin-top: spacing.set-space(3);
+
+    &__title {
+      margin-bottom: spacing.set-space(2);
+    }
+
+    &__list {
+      .user-item {
+        margin-bottom: spacing.set-space(1);
+      }
+    }
+  }
+}

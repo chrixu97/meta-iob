@@ -1,0 +1,97 @@
+// This file remove all the browser and default styles.
+
+@use 'colors';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: colors.$background;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="number"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="url"], 
+input[type="date"], 
+input[type="month"], 
+input[type="week"], 
+input[type="time"], 
+input[type="datetime-local"], 
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+button, 
+input[type="submit"], 
+input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.not-show {
+  height: 0;
+  overflow: hidden;
+}

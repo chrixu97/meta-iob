@@ -1,0 +1,35 @@
+@use '@/assets/styles/colors';
+@use '@/assets/styles/spacing';
+
+$icon-dimesion: 24px;
+
+.activity-icon {
+  padding: spacing.set-space(1);
+  background-color: colors.$background;
+  width: fit-content;
+  border-radius: 100px;
+
+  &::before {
+    display: block;
+    height: $icon-dimesion;
+    width: $icon-dimesion;
+  }
+
+  &--restaurant {
+    &::before {
+      content: url('@/assets/icons/icon-restaurant.svg');
+    }
+  }
+
+  &--shopping {
+    &::before {
+      content: url('@/assets/icons/icon-shopping.svg');
+    }
+  }
+
+  &--visa {
+    &::before {
+      content: url('@/assets/icons/icon-visa.svg');
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use '@/assets/styles/colors';
+@use '@/assets/styles/breakpoints';
+@use '@/assets/styles/spacing';
+
+$border-radius: 10px;
+
+.info {
+  width: 100%;
+  background-color: colors.$secondary;
+  border-radius: $border-radius;
+  overflow: hidden;
+  
+  span {
+    display: block;
+    width: 100%;
+    padding: spacing.set-space(1.5) spacing.set-space(2);
+    text-align: center;
+
+    @media (min-width: breakpoints.$md) {
+      padding: spacing.set-space(1.5) spacing.set-space(2);
+    }
+  }
+
+  &--success {
+    background-color: colors.$success;
+  }
+
+  &--error {
+    background-color: colors.$error;
+  }
+}

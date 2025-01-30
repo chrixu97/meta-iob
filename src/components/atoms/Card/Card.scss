@@ -1,0 +1,16 @@
+@use '@/assets/styles/colors';
+@use '@/assets/styles/breakpoints';
+@use '@/assets/styles/spacing';
+
+$border-radius: 10px;
+
+.card {
+  width: 100%;
+  background-color: colors.$secondary;
+  border-radius: $border-radius;
+  padding: spacing.set-space(4) spacing.set-space(2);
+
+  @media (min-width: breakpoints.$md) {
+    padding: spacing.set-space(5) spacing.set-space(3);
+  }
+}
