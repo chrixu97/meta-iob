@@ -25,7 +25,7 @@ const Input: React.FC<InputProps> = ({
   disabled = false 
 }) => {
   return (
-    <div id={id} className={`input ${variant ? `input--${variant}` : ''} ${error ? 'input--error' : ''} ${className}`}>
+    <div id={id} className={`input text ${variant ? `input--${variant}` : ''} ${error ? 'input--error' : ''} ${className}`}>
       <input
         type={type}
         value={value}
