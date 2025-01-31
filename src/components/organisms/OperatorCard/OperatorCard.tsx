@@ -107,7 +107,7 @@ const OperatorCard: React.FC = () => {
   return (
     <div className={`operator-card operator-card--${operator}`}>
       <Card>
-        {operator != 'hide' && (
+        {(operator != 'hide' && operator != '') && (
           <p className='operator-card__title title'>
             {t(`homePage.operatorPanel.operatorCards.title.${operator}`)}
           </p>

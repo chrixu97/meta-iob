@@ -33,7 +33,7 @@ body {
 }
 
 .text {
-  @include set-font-attributes(14px, 1, normal);
+  @include set-font-attributes(16px, 1, normal);
 
   @media (min-width: breakpoints.$lg) {
     @include set-font-attributes(16px, 1, normal);
@@ -55,5 +55,4 @@ body {
     @include set-font-attributes(10px, 1, normal);
   }
 }
-
 
