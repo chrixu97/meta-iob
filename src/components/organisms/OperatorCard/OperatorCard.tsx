@@ -19,6 +19,7 @@ interface UseOperatorValidationReturn {
   number: string;
   numberError: boolean;
   handleNumberChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  resetNumberError: () => void;
 }
 
 const OperatorCard: React.FC = () => {
@@ -102,7 +103,12 @@ const OperatorCard: React.FC = () => {
     modifiedUser.activities = [newActivity, ...modifiedUser.activities];
 
     dispatch(addActivity(modifiedUser));
-  };  
+  };
+
+  const handleCloseButton = () => {
+    formValidation.resetNumberError();
+    dispatch(setOperatorState('hide'))
+  }
 
   return (
     <div className={`operator-card operator-card--${operator}`}>
@@ -125,26 +131,26 @@ const OperatorCard: React.FC = () => {
 
         <div className="operator-card__extra-content">
           {operator === 'add' && (
-            <Button variant="primary" onClick={() => operate()}>
+            <Button variant="primary" disabled={formValidation.numberError} onClick={() => operate()}>
               {t(`homePage.operatorPanel.buttons.add`)}
             </Button>
           )}
 
           {operator === 'send' && (
-            <Button variant="primary" onClick={() => operate()}>
+            <Button variant="primary" disabled={formValidation.numberError} onClick={() => operate()}>
               {t(`homePage.operatorPanel.buttons.send`)}
             </Button>
           )}
 
           {operator === 'request' && (
-            <Button variant="primary" onClick={() => operate()}>
+            <Button variant="primary" disabled={formValidation.numberError} onClick={() => operate()}>
               {t(`homePage.operatorPanel.buttons.request`)}
             </Button>
           )}
         </div>
 
         <div className='operator-card__close'>
-          <Button variant="tertiary" onClick={() => dispatch(setOperatorState('hide'))}>X</Button>
+          <Button variant="tertiary" onClick={handleCloseButton}>X</Button>
         </div>
       </Card>
     </div>
